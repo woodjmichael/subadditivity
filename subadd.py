@@ -1,18 +1,18 @@
 # subadd.py
-# subadditivity numerical example with plot
+# subadditivity (single product) numerical example with plot
 # python 3.7
 
 __author__ = "Michael Wood"
 __email__ = "woodjmichael@gmail.com"
 __license__ = "GPL"
-__version__ = "1.0"
+__version__ = "1.1"
 
 
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-#
+# maximum quantity
 L = 1500
 
 # cost curve coefficients
@@ -28,7 +28,7 @@ k = 2
 #
 
 # quantity
-q = np.arange(5,L)
+q = np.arange(1,L)
 
 Ca = a*q**2 + b*q + c                       # tech A
 Cb = (a/k)*q**2 + b*q + c*k                 # tech B
@@ -51,9 +51,9 @@ ax1.plot(q[40:250], ACa[40:250], label='AC one firm tech A')
 ax1.plot(q[100:600], ACb[100:600], label='AC one firm tech B')
 ax1.plot(q[200:1200], ACb2[200:1200], label='AC two firms tech B')
 
-ax1.plot(q,-10*q+1000,label='demand 1')
-ax1.plot(q,-10*q+2500,label='demand 2')
-ax1.plot(q,-10*q+5000,label='demand 3')
+ax1.plot(q,-10*q+1000,label='demand 1 (monopoly, econ of scale)')
+ax1.plot(q,-10*q+1500,label='demand 2 (monopoly, no econ of scale)')
+ax1.plot(q,-10*q+3500,label='demand 3 (no monopoly)')
 
 ax1.plot(q,MCa,'--',label='MC one firm tech A')
 
